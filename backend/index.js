@@ -13,7 +13,7 @@ const cloudinary = require("cloudinary");
 //config
 
 //connecting database
-connectDB();
+// connectDB();
 
 // cloudinary.config({
 //   cloud_name: process.env.CLOUD_NAME,
