@@ -6,21 +6,20 @@ const fileUpload = require("express-fileupload");
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
 const path = require("path");
-
+dotenv.config({ path: "config.env" });
 //config
 const connectDB = require("./database/db");
 const cloudinary = require("cloudinary");
 //config
-dotenv.config({ path: "config.env" });
 
 //connecting database
 connectDB();
 
-cloudinary.config({
-  cloud_name: process.env.CLOUD_NAME,
-  api_key: process.env.CLOUD_API_KEY,
-  api_secret: process.env.CLOUD_API_SECRET,
-});
+// cloudinary.config({
+//   cloud_name: process.env.CLOUD_NAME,
+//   api_key: process.env.CLOUD_API_KEY,
+//   api_secret: process.env.CLOUD_API_SECRET,
+// });
 
 // app.use(express.json());
 // app.use(cookieParser());
@@ -35,7 +34,7 @@ cloudinary.config({
 
 // if (process.env.NODE_ENV === "development") {
 app.get("/", (req, res) => {
-  res.send("API is running..");
+  res.send("API is running.....");
 });
 // } else {
 //   app.use(express.static(path.join(__dirname, "../frontend/build")));
