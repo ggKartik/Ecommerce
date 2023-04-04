@@ -8,8 +8,8 @@ const dotenv = require("dotenv");
 const path = require("path");
 dotenv.config({ path: "config.env" });
 //config
-const connectDB = require("./database/db");
-const cloudinary = require("cloudinary");
+// const connectDB = require("./database/db");
+// const cloudinary = require("cloudinary");
 //config
 
 //connecting database
