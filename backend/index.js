@@ -6,7 +6,12 @@ const fileUpload = require("express-fileupload");
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
 const path = require("path");
+const cors = require("cors");
+
 dotenv.config({ path: "config.env" });
+
+app.use(cors());
+
 //config
 // const connectDB = require("./database/db");
 // const cloudinary = require("cloudinary");
