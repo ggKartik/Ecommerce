@@ -1,0 +1,7 @@
+.loader{
+    width: 100wh;
+    height: 100vh;
+    background-color: white;
+    display: grid;
+    place-items:center;
+}
