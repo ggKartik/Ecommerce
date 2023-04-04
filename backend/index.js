@@ -1,25 +1,26 @@
 const express = require("express");
 const app = express();
-// const cookieParser = require("cookie-parser");
-// const errorMiddlware = require("./middleware/error");
-// const fileUpload = require("express-fileupload");
-// const bodyParser = require("body-parser");
-// const dotenv = require("dotenv");
-// const path = require("path");
-// //config
-// const connectDB = require("./database/db");
-// const cloudinary = require("cloudinary");
-// //config
-// dotenv.config({ path: "config.env" });
+const cookieParser = require("cookie-parser");
+const errorMiddlware = require("./middleware/error");
+const fileUpload = require("express-fileupload");
+const bodyParser = require("body-parser");
+const dotenv = require("dotenv");
+const path = require("path");
 
-// //connecting database
-// connectDB();
+//config
+const connectDB = require("./database/db");
+const cloudinary = require("cloudinary");
+//config
+dotenv.config({ path: "config.env" });
 
-// cloudinary.config({
-//   cloud_name: process.env.CLOUD_NAME,
-//   api_key: process.env.CLOUD_API_KEY,
-//   api_secret: process.env.CLOUD_API_SECRET,
-// });
+//connecting database
+connectDB();
+
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.CLOUD_API_KEY,
+  api_secret: process.env.CLOUD_API_SECRET,
+});
 
 // app.use(express.json());
 // app.use(cookieParser());
