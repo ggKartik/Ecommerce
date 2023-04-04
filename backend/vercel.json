@@ -1,0 +1,10 @@
+  {
+    "version": 2,
+    "name": "E-Commerece-Clone",
+    "builds": [
+        { "src": "server.js", "use": "@now/node" }
+    ],
+    "routes": [
+        { "src": "/(.*)", "dest": "server.js" }
+    ]
+}

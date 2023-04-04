@@ -52,7 +52,7 @@ function App() {
   return (
     <Router>
       <Header />
-      {isAuthenticated && <UserOptions user={user} />}
+      {isAuthenticated && user !== undefined && <UserOptions user={user} />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/product/:id" element={<ProductDetails />} />

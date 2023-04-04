@@ -11,11 +11,11 @@ const ReviewCard = ({ review }) => {
   };
 
   return (
-    <div className="card">
-      <div className="card-img">
+    <div className="cardr">
+      <div className="cardr-img">
         <img src={profilePng} alt="User" />
       </div>
-      <div className="card-info">
+      <div className="cardr-info">
         <p className="text-title">{review.name}</p>
         <Rating {...options} />
         <p className="text-body">{review.comment}</p>
