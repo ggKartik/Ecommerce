@@ -24,7 +24,7 @@ cloudinary.config({
   api_secret: process.env.CLOUD_API_SECRET,
 });
 
-app.use(express.json({ extended: false }));
+app.use(express.json());
 app.use(cookieParser());
 app.use(fileUpload());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -54,8 +54,6 @@ app.use("/api/v1", paymentRouter);
 //middleware for error
 // app.use(errorMiddlware);
 
-app.listen(process.env.PORT || 4500, () => {
-  console.log(
-    `server is working on http://localhost:${process.env.PORT || 4500}`
-  );
+app.listen(process.env.PORT, () => {
+  console.log(`server is working on http://localhost:${process.env.PORT}`);
 });
