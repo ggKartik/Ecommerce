@@ -1,6 +1,6 @@
 const { findById, findByIdAndDelete } = require("../models/productModel");
 const products = require("../models/productModel");
-const ErrorHandler = require("../utils/errorHandler");
+// const ErrorHandler = require("../utils/errorHandler");
 const ApiFeateure = require("../utils/apiFeatures");
 const cloudinary = require("cloudinary");
 
@@ -109,7 +109,7 @@ exports.updateProduct = async (req, res, next) => {
 exports.deleteProduct = async (req, res, next) => {
   let Product = await products.findById(req.params.id);
   if (!Product) {
-    return next(new ErrorHandler("Product Not Found", 404));
+    return res.status(404).json({ message: "Product Not Found" });
   }
 
   //delete images from cloudinary

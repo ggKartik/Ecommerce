@@ -1,19 +1,23 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
 const catchAsyncError = require("./catchAsyncError");
-const ErrorHandler = require("../utils/errorHandler");
+// const ErrorHandler = require("../utils/errorHandler");
 exports.isAuthenticated = catchAsyncError(async (req, res, next) => {
   try {
     const { token } = req.cookies;
     if (!token) {
-      return next(new ErrorHandler("Login first to access this resource", 400));
+      return res.json
+        .status(400)
+        .json({ message: "Login first to access this resource" });
     }
     const decodedData = jwt.verify(token, process.env.SECRET_KEY);
     req.user = await User.findById(decodedData.id);
 
     next();
   } catch (error) {
-    return next(new ErrorHandler("Login first to access this resource", 400));
+    return res
+      .status(400)
+      .json({ message: "Login first to access this resource" });
   }
 });
 

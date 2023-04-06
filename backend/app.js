@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const cookieParser = require("cookie-parser");
-const errorMiddlware = require("./middleware/error");
+// const errorMiddlware = require("./middleware/error");
 const fileUpload = require("express-fileupload");
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
@@ -37,5 +37,5 @@ app.use("/api/v1", orderRouter);
 app.use("/api/v1", paymentRouter);
 
 //middleware for error
-app.use(errorMiddlware);
+// app.use(errorMiddlware);
 module.exports = app;
