@@ -1,6 +1,6 @@
 const { findById, findByIdAndDelete } = require("../models/productModel");
 const products = require("../models/productModel");
-const ErrorHandler = require("../utils/ErrorHandler");
+const ErrorHandler = require("../utils/errorHandler");
 const ApiFeateure = require("../utils/apiFeatures");
 const cloudinary = require("cloudinary");
 
