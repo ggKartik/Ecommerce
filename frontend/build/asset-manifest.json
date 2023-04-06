@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.5453263c.css",
-    "main.js": "/static/js/main.7fdb8b09.js",
-    "static/media/cover.jfif": "/static/media/cover.e2edeab17643ab2951c0.jfif",
-    "static/media/Profile.png": "/static/media/Profile.697fdcd21f6d157b9073.png",
-    "static/media/playstore.png": "/static/media/playstore.82b4831979e0ce7c733e.png",
-    "static/media/Appstore.png": "/static/media/Appstore.d0c5839937e3c36285f6.png",
-    "index.html": "/index.html",
-    "main.5453263c.css.map": "/static/css/main.5453263c.css.map",
-    "main.7fdb8b09.js.map": "/static/js/main.7fdb8b09.js.map"
+    "main.css": "./static/css/main.828d112d.css",
+    "main.js": "./static/js/main.c01ebcfa.js",
+    "static/media/cover.jfif": "./static/media/cover.e2edeab17643ab2951c0.jfif",
+    "static/media/Profile.png": "./static/media/Profile.697fdcd21f6d157b9073.png",
+    "static/media/playstore.png": "./static/media/playstore.82b4831979e0ce7c733e.png",
+    "static/media/Appstore.png": "./static/media/Appstore.d0c5839937e3c36285f6.png",
+    "index.html": "./index.html",
+    "main.828d112d.css.map": "./static/css/main.828d112d.css.map",
+    "main.c01ebcfa.js.map": "./static/js/main.c01ebcfa.js.map"
   },
   "entrypoints": [
-    "static/css/main.5453263c.css",
-    "static/js/main.7fdb8b09.js"
+    "static/css/main.828d112d.css",
+    "static/js/main.c01ebcfa.js"
   ]
 }

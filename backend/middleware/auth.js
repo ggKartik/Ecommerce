@@ -1,8 +1,6 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
-const catchAsyncError = require("./catchAsyncError");
-// const ErrorHandler = require("../utils/errorHandler");
-exports.isAuthenticated = catchAsyncError(async (req, res, next) => {
+exports.isAuthenticated = async (req, res, next) => {
   try {
     const { token } = req.cookies;
     if (!token) {
@@ -19,7 +17,7 @@ exports.isAuthenticated = catchAsyncError(async (req, res, next) => {
       .status(400)
       .json({ message: "Login first to access this resource" });
   }
-});
+};
 
 exports.authorisedRoles = (...roles) => {
   return (req, res, next) => {
