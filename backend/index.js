@@ -35,7 +35,7 @@ const userRouter = require("./routes/userRouter");
 const orderRouter = require("./routes/orderRoute");
 const paymentRouter = require("./routes/paymentRoute");
 
-app.use(express.static(path.join(__dirname, "../frontend/build")));
+app.use(express.static(__dirname));
 
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../frontend/build/index.html")),
