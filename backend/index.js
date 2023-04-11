@@ -1,34 +1,21 @@
-const express = require("express");
-const app = express();
-const cookieParser = require("cookie-parser");
-const fileUpload = require("express-fileupload");
-const bodyParser = require("body-parser");
+const Express = require("express");
+const app = Express();
 const dotenv = require("dotenv");
-const path = require("path");
+const cloudinary = require("cloudinary");
+const bodyparser = require("body-parser");
+const fileupload = require("express-fileupload");
 const cors = require("cors");
+const path = require("path");
 
 dotenv.config({ path: "config/config.env" });
-const { urlencoded } = require("express");
-// config
-const connectDB = require("./database/db");
-const cloudinary = require("cloudinary");
 
-// connecting database
-connectDB();
-
-cloudinary.config({
-  cloud_name: process.env.CLOUD_NAME,
-  api_key: process.env.CLOUD_API_KEY,
-  api_secret: process.env.CLOUD_API_SECRET,
-});
-
-app.use(cors());
-app.use(express.json());
+app.use(Express.json());
+var cookieParser = require("cookie-parser");
 app.use(cookieParser());
-app.use(fileUpload());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyparser.urlencoded({ extended: true }));
+app.use(fileupload());
+app.use(cors());
 
-//import route
 const productRouter = require("./routes/productRoute");
 const userRouter = require("./routes/userRouter");
 const orderRouter = require("./routes/orderRoute");
@@ -37,18 +24,26 @@ app.use("/api/v1", productRouter);
 app.use("/api/v1", userRouter);
 app.use("/api/v1", orderRouter);
 app.use("/api/v1", paymentRouter);
+const mongoose = require("mongoose");
+const { urlencoded } = require("express");
+const connectDB = require("./database/db");
+connectDB();
 
-app.use(express.static(path.join(__dirname, "../frontend/build")));
+app.use(Express.static(path.join(__dirname, "../frontend/build")));
 
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../frontend/build/index.html"));
 });
 
-//middleware for error
-// app.use(errorMiddlware);
-
-app.listen(process.env.PORT || 4500, () => {
-  console.log(
-    `server is working on http://localhost:${process.env.PORT || 4500}`
-  );
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.CLOUD_API_KEY,
+  api_secret: process.env.CLOUD_API_SECRET,
+});
+app.listen(process.env.PORT || 4500, (e) => {
+  if (e) {
+    console.log("Error");
+    return;
+  }
+  console.log(`Server Running fine on port ${process.env.PORT || 4500}`);
 });
