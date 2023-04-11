@@ -8,7 +8,7 @@ const path = require("path");
 const cors = require("cors");
 
 dotenv.config({ path: "config.env" });
-
+const { urlencoded } = require("express");
 // config
 const connectDB = require("./database/db");
 const cloudinary = require("cloudinary");
@@ -53,6 +53,8 @@ app.use("/api/v1", paymentRouter);
 //middleware for error
 // app.use(errorMiddlware);
 
-app.listen(process.env.PORT, () => {
-  console.log(`server is working on http://localhost:${process.env.PORT}`);
+app.listen(process.env.PORT || 4500, () => {
+  console.log(
+    `server is working on http://localhost:${process.env.PORT || 4500}`
+  );
 });
