@@ -7,7 +7,7 @@ const dotenv = require("dotenv");
 const path = require("path");
 const cors = require("cors");
 
-dotenv.config({ path: "config.env" });
+dotenv.config({ path: "config/config.env" });
 const { urlencoded } = require("express");
 // config
 const connectDB = require("./database/db");
@@ -33,22 +33,16 @@ const productRouter = require("./routes/productRoute");
 const userRouter = require("./routes/userRouter");
 const orderRouter = require("./routes/orderRoute");
 const paymentRouter = require("./routes/paymentRoute");
-
-app.use(express.static(path.join(__dirname, "../frontend/build")));
-
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "../frontend/build/index.html")),
-    function (err) {
-      if (err) {
-        res.status(500).send(err);
-      }
-    };
-});
-
 app.use("/api/v1", productRouter);
 app.use("/api/v1", userRouter);
 app.use("/api/v1", orderRouter);
 app.use("/api/v1", paymentRouter);
+
+app.use(express.static(path.join(__dirname, "../frontend/build")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "../frontend/build/index.html"));
+});
 
 //middleware for error
 // app.use(errorMiddlware);
